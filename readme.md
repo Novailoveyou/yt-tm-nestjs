@@ -19,3 +19,15 @@ Init nestjs project
 ```zsh
 nest new project-name
 ```
+
+Generate a controller
+
+```zsh
+nest g controller items
+```
+
+Start the server
+
+```zsh
+pnpm run start:dev
+```
