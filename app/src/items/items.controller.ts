@@ -12,7 +12,7 @@ export class ItemsController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: Item['id']) {
     return this.itemsService.findOne(id)
   }
 
@@ -22,12 +22,12 @@ export class ItemsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() item: Item) {
+  update(@Param('id') id: Item['id'], @Body() item: Item) {
     return this.itemsService.update(id, item)
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
+  delete(@Param('id') id: Item['id']) {
     return this.itemsService.delete(id)
   }
 }
