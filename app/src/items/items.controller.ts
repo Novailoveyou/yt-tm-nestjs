@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common'
-import { CreateItemDto } from './dto/create-item.dto'
 import { ItemsService } from './items.service'
+import { Item } from '@prisma/client'
 
 @Controller('items')
 export class ItemsController {
@@ -17,13 +17,13 @@ export class ItemsController {
   }
 
   @Post()
-  create(@Body() createItemDto: CreateItemDto) {
-    return this.itemsService.create(createItemDto)
+  create(@Body() item: Item) {
+    return this.itemsService.create(item)
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() body: CreateItemDto) {
-    return this.itemsService.update(id, body)
+  update(@Param('id') id: string, @Body() item: Item) {
+    return this.itemsService.update(id, item)
   }
 
   @Delete(':id')

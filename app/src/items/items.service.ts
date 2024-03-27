@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../prisma.service'
+import { PrismaService } from '../../prisma/prisma.service'
 import { Item } from '@prisma/client'
 
 @Injectable()
@@ -10,26 +10,26 @@ export class ItemsService {
     return this.prisma.item.findMany()
   }
 
-  findOne(id: string) {
+  findOne(id: Item['id']) {
     return this.prisma.item.findUnique({
       where: { id: id },
     })
   }
 
-  create(data: Omit<Item, 'createdAt' | 'updatedAt' | 'id'>) {
+  create(data: Item) {
     return this.prisma.item.create({
       data,
     })
   }
 
-  update(id: string, data: Omit<Item, 'createdAt' | 'updatedAt' | 'id'>) {
+  update(id: Item['id'], data: Item) {
     return this.prisma.item.update({
       where: { id },
       data,
     })
   }
 
-  delete(id: string) {
+  delete(id: Item['id']) {
     return this.prisma.item.delete({
       where: { id },
     })
