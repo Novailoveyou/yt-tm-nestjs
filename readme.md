@@ -26,6 +26,12 @@ Generate a controller
 nest g controller items
 ```
 
+Generate a service
+
+```zsh
+nest g service items
+```
+
 Start the server
 
 ```zsh
